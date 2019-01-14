@@ -21,7 +21,6 @@ After creating your new Laravel application you can include the Voyager package 
 composer require tcg/voyager
 ```
 
-
 ### 2. 加入資料庫及網站連結
 
 先創立一個新的資料庫並將帳號密碼填入 .env 文件內
@@ -40,7 +39,6 @@ APP_URL=http://localhost:8000
 ```
 
 > 如果您使用 Laravel 5.4 版本請參閱 [Add the Service Provider.](https://voyager.readme.io/docs/adding-the-service-provider)
-
 
 ### 3. Run The Installer
 
@@ -65,7 +63,6 @@ php artisan voyager:install --with-dummy
 一切安裝完成之後，開始 voyager 吧 !
 
 輸入 `php artisan serve` 開始您的本機開發服務然後開啟 [http://localhost:8000/admin](http://localhost:8000/admin).
-
 
 ## 建立管理員帳號
 

@@ -1,10 +1,10 @@
 # What is Voyager
 
-在您安裝 voyager 前，先了解 voyager _是什麼 及 _不是什麼。
+在您安裝 voyager 前，先了解 voyager "是什麼" 及 "不是什麼"。
 
 Before installing Voyager it is very important to take a quick moment to learn _what it is_ & _what it isn't_.
 
-## voyager 是
+## voyager 是 :
 
 * Laravel 的管理介面
 * 一種為您的應用操作 新增/修改/刪除 資料的簡單方法
@@ -16,7 +16,7 @@ voyager只是Laravel應用程序的管理員，無論你想要什麼，你的應
 
 您可以控制您的應用程序，您可以使用 voyager 通過添加數據，編輯用戶，創建選單和許多其他管理任務來簡化您的流程。
 
-## voyager 不是
+## voyager 不是 :
 
 * 內容管理系統 \(CMS\)
 * Blog 平台
