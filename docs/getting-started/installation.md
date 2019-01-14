@@ -1,12 +1,12 @@
 # Installation
 
-Voyager is super easy to install. After creating your new Laravel application you can include the Voyager package with the following command:
+Voyager 非常便於安裝，在您建立您的 Laravel 應用後使用 composer 指令 : 
 
 ```bash
 composer require tcg/voyager
 ```
 
-Next make sure to create a new database and add your database credentials to your .env file, you will also want to add your application URL in the `APP_URL` variable:
+接著確認您建立了一個新的資料庫並將資料庫資料加入至 .env 檔案中，以及在 .env 內的 APP_URL 替換為您的應用程式網址
 
 ```text
 APP_URL=http://localhost
@@ -17,19 +17,22 @@ DB_PASSWORD=secret
 ```
 
 {% hint style="info" %}
-**Using Laravel 5.4?**  
-If you are installing with Laravel 5.4 you will need to [add the Service Provider manually](installation.md#adding-the-service-provider). Otherwise, if you are on 5.5 this happens automatically thanks to package auto-discovery.
+**使用 Laravel 5.4?**  
+如您使用 Laravel 5.4 請參閱 [add the Service Provider manually](installation.md#adding-the-service-provider). Otherwise, if you are on 5.5 this happens automatically thanks to package auto-discovery.
 {% endhint %}
 
-Finally, we can install Voyager. You can choose to install Voyager with dummy data or without the dummy data. The dummy data will include 1 admin account \(if no users already exist\), 1 demo page, 4 demo posts, 2 categories and 7 settings.
+最後, 我們準備動手安裝 voyager. 
 
-To install Voyager without dummy data simply run
+您可以選擇簡單安裝或附有虛擬資料(dummy)的安裝方式，附帶虛擬資料的安裝內容包含 1 個管理者帳號(如果沒有使用者存在於資料表內)、1 個網頁、
+4 則文章、2 個分類及 7 個設定
+
+不包含虛擬資料的簡單安裝
 
 ```bash
 php artisan voyager:install
 ```
 
-If you prefer installing it with the dummy data run the following command:
+若您想要使用含有虛擬資料的安裝方式請輸入以下指令
 
 ```bash
 php artisan voyager:install --with-dummy
@@ -37,24 +40,24 @@ php artisan voyager:install --with-dummy
 
 {% hint style="danger" %}
 **Specified key was too long error**  
-If you see this error message you have an outdated version of MySQL, use the following solution: [https://laravel-news.com/laravel-5-4-key-too-long-error](https://laravel-news.com/laravel-5-4-key-too-long-error)
+若您看到以上訊息則表示您使用的 MySQL 版本過低, 請參閱以下解決方式: [https://laravel-news.com/laravel-5-4-key-too-long-error](https://laravel-news.com/laravel-5-4-key-too-long-error)
 {% endhint %}
 
-And we're all good to go!
+輸入 `php artisan serve` 及訪問 [http://localhost:8000/admin](http://localhost:8000/admin) 開始您的開發吧
 
-Start up a local development server with `php artisan serve` And, visit the URL [http://localhost:8000/admin](http://localhost:8000/admin) in your browser.
+如果您
 
-If you installed with the dummy data, a user has been created for you with the following login credentials:
+如果您在安裝時包含了虛擬數據，則安裝完成後會一併建立以下的管理帳號 : 
 
-> **email:** `admin@admin.com`  
-> **password:** `password`
+>**email:** `admin@admin.com`   
+>**password:** `password`
 
 {% hint style="info" %}
-**Quick note**  
-A dummy user is **only** created if there are no current users in your database.
+**說明**  
+只有在資料庫內未含有用戶資料時才會創建虛擬管理員
 {% endhint %}
 
-If you did not go with the dummy user, you may wish to assign admin priveleges to an existing user. This can easily be done by running this command:
+如果您未創建虛擬資料，以下的命令可以使您創造一個管理員帳號
 
 ```bash
 php artisan voyager:admin your@email.com
@@ -66,27 +69,29 @@ If you wish to create a new admin user you can pass the `--create` flag, like so
 php artisan voyager:admin your@email.com --create
 ```
 
-And you will be prompted for the users name and password.
+接著系統會要求您輸入帳號密碼即可完成創建管理員步驟。
 
-## Advanced
+## 進階安裝
 
-This section is meant for users who are installing Voyager on an already existing Laravel installation or for users who want to perform a manual install. If this is not the case, you should go back to the [installation](installation.md) documentation or skip this section.
+本節適用於在現有 Laravel 安裝上安裝 Voyager 或希望執行手動安裝的用戶。若您非上述情形，請回到[installation](installation.md)或跳過本章捷
 
-The first thing you should do is publish the assets that come with Voyager. You can do that by running the following commands:
+您應該做的第一件事是發布Voyager附帶的資產。您可以通過運行以下命令來執行此操作：
 
 ```bash
 php artisan vendor:publish --provider=VoyagerServiceProvider
 php artisan vendor:publish --provider=ImageServiceProviderLaravel5
 ```
 
-## Adding the Service Provider
+## 添加至服務提供者
 
 {% hint style="info" %}
-**This is only required if you are using Laravel 5.4!**  
-If you are on Laravel 5.5+ you can skip this step.
+**只針對使用 Laravel 5.4!**  
+若您使用 Laravel 5.5+ 請跳過此章節
 {% endhint %}
 
-To add the Voyager Service Provider open up your application `config/app.php` file and add `TCG\Voyager\VoyagerServiceProvider::class,` in the `providers` array like so:
+新增 Voyager 至服務提供者，請開打 `config/app.php`，並將 `TCG\Voyager\VoyagerServiceProvider::class,` 添加至 `providers` 陣列內。
+
+如
 
 ```php
 <?php

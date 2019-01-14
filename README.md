@@ -79,7 +79,7 @@ php artisan voyager:install --with-dummy
 php artisan voyager:admin your@email.com
 ```
 
-如果您未創建虛擬資料，以下簡單的命令可以使您創造一個管理員帳號
+如果您未創建虛擬資料，以下的命令可以使您創造一個管理員帳號
 
 ```bash
 php artisan voyager:admin your@email.com --create
