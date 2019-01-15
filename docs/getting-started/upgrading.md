@@ -1,18 +1,18 @@
 # Upgrading
 
-## Upgrading 1.0 to 1.1
+## 從 1.0 升級至 1.1
 
-### Update your Composer.json
+### 更新您的 composer.json
 
-To update to the latest version inside of your composer.json file make sure to update the version of voyager inside the require declaration inside of your composer.json to:
+要更新至最新版本請先確保 composer.json 中的 voyager 的聲明宣告為 :  
 
 `"tcg/voyager": "1.1.*"`
 
-And then run `composer update`
+接著執行 `composer update`
 
-### Run the necessary migrations
+### 執行必要的資料庫資料遷移
 
-You will now need to run the following migrations to include new tables or rows that have been added to the latest version. you can find each of these migrations below:
+您需要執行遷移命令包含在最新版本中所需的新資料表及欄位，您可以在下方找到這些遷移表 :
 
 ```text
 https://github.com/the-control-group/voyager/blob/1.1/migrations/2017_11_26_013050_add_user_role_relationship.php
@@ -22,38 +22,39 @@ https://github.com/the-control-group/voyager/blob/1.1/migrations/2018_03_14_0000
 https://github.com/the-control-group/voyager/blob/1.1/migrations/2018_03_16_000000_make_settings_value_nullable.php
 ```
 
-You can do this by adding each of those migrations to your `database/migrations` folder and then run `php artisan migrate`
+您可以將這些遷移表放至　`database/migrations`　資料夾下並執行　`php artisan migrate`
 
-### Update Configuration
+### 更新配置 (Configuration)
 
-The `voyager.php` configuration file has had a few changes. The `prefix` key has been removed in favor of the `user.redirect` key. Please note that the `user.redirect` key should be prefixed with a slash \(`/`\), unlike the original `prefix` key.
+`voyager.php` 配置文件也有一些調整， 移除 `prefix` 參數並換成 `user.redirect` 參數，請注意 `user.redirect` 參數應該總是在最前方加上 \(`/`\)
 
-### Multi Roles
+### 多角色
 
-Multi-roles is a new feature come by in v1.1 that allows you to have multiple roles and one primary role. You can fetch the user's primary role like normally using this:
+多角色是v1.1中的新功能，允許您擁有多個角色和一個主要角色。您可以像平常一樣使用此方法獲取用戶的主要角色
 
 ```php
 $user->role->name // Name of primary role
 ```
 
-But now you can also use the new belongsToMany roles relationship to fetch all extra roles:
+但是現在您還可以使用新的belongsToMany角色關係來獲取所有額外角色
 
 ```php
 $user->roles() // gets all extra roles relationship
 $user->roles()->get() // gets all extra as a collection
 ```
 
-Besides that there is a helper to get all the roles, both the primary and the extra roles:
+除此之外，還有一個輔助方法可以獲得所有角色，包括主角色和額外角色：
 
 ```php
 $user->roles_all() // collection of all roles
 ```
 
+請注意，您不一定需要使用多角色，並且可以繼續使用主要角色而無需進行任何更改。
 Please note, that you do not have to use the multi-roles and you can continue to use the primary role without any changes.
 
-Also, make sure that you add the new data row into the database for the `users` data type. Insert a new row of data in the `data_rows` table. Make sure that it's `data_type_id` is the ID for the `users` data type, normally this would be ID `3`, but better make sure it is correct.
+此外，請確保將新數據行添加到用戶數據類型的數據庫中。在 data_rows 表中插入新的數據行，確保它的 data_type_id 是用戶數據類型的ID，通常這將是ID 3，但更好的是確保它是正確的。
 
-Then make sure the other fields are like below:
+然後確保其他字段如下列所示：
 
 | field | user\_belongstomany\_role\_relationship |
 | :--- | :--- |
@@ -68,39 +69,36 @@ Then make sure the other fields are like below:
 | details | `{"model":"TCG\\Voyager\\Models\\Role","table":"roles","type":"belongsToMany","column":"id","key":"id","label":"name","pivot_table":"user_roles","pivot":"1"}` |
 | order | 11 |
 
-### Bread
+### BREAD
 
-The BREAD and Database section in Voyager has been separated into two sections. So in order to get access to the BREAD section using the menu, make sure to add the following menu item:
+Voyager 中的 BREAD 及資料庫分為兩個部分，因此為了使用選單訪問 BREAD 部分，請確保添加以下選單項：
 
 ![](../.gitbook/assets/upgrade_menu_item.png)
 
-However, you might still not be able to see it, because it requires permission, so go ahead and create a new row in the `permissions` table with the `key` being `browse_bread`, leave the `table_name` to be `null`.
+然而，您可能仍無法正常運作，因為它還需要權限，接著繼續在 `permissions` 表內建立一個 `key` 為 `browse_bread` 的新欄位並將 `table_name` 設為 `null` 
 
-You should now be able to access the BREAD section.
+現在，您應該可以看到 BREAD 選單部分
 
-## Translations
+## 翻譯
 
-> If you have not translated any of the Voyager language strings, you may skip this step.
+> 若您無須翻譯任何 Voyager 字串則可以跳過此步驟
 
-Voyager have changed its translations strings from being like `__('voyager.generic.close')` to be prefixed with the `voyager::` group.
+Voyager已將其翻譯字符串從__（'voyager.generic.close'）更改為以voyager :: group為前綴。
 
-Meaning that you would have to update your translated strings inside `resources/lang/LOCALE.json` to use the new prefix.
+這表示您需要更新您在 `resources/lang/LOCALE.json` 中的已翻譯字符串以使用新前綴。
 
-## Final Steps
+## 最後一步
 
-Next, you may want to be sure that you have all the latest published assets. To re-publish the voyager assets you can run the following command:
+接下來，您可能希望確保擁有所有最新發布的資源，要重新發布 Voyager 資源您可以輸入以下指令
 
 ```text
 php artisan vendor:publish --tag=voyager_assets --force
 ```
 
-Then you may wish to clear your view cache by running the following command:
+接著您可能需要透過以下命令清除所有視圖的快取
 
 ```text
 php artisan view:clear
 ```
 
-## Troubleshooting
-
-Be sure to ask us on our slack channel if you are experiencing any issues and we will try and assist. Thanks.
 

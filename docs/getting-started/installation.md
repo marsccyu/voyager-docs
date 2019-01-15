@@ -1,5 +1,7 @@
 # Installation
 
+## 一般安裝
+
 Voyager 非常便於安裝，在您建立您的 Laravel 應用後使用 composer 指令 : 
 
 ```bash
@@ -25,7 +27,7 @@ DB_PASSWORD=secret
 
 {% hint style="tip" %}
 **使用本地化語言**  
-先開啟 `config/app.php` 並設定 `'locale' => 'zh-TW'` , 接著執行 `voyager:install` 便會安裝中文版的 voyager
+先開啟 `config/app.php` 並設定 `'locale' => 'zh-TW'` , 接著執行安裝便會是中文版的 voyager
 {% endhint %}
 
 您可以選擇簡單安裝或附有虛擬資料(dummy)的安裝方式，附帶虛擬資料的安裝內容包含 1 個管理者帳號(如果沒有使用者存在於資料表內)、1 個網頁、
