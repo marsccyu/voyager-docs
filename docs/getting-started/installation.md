@@ -23,6 +23,11 @@ DB_PASSWORD=secret
 
 最後, 我們準備動手安裝 voyager. 
 
+{% hint style="tip" %}
+**使用本地化語言**  
+先開啟 `config/app.php` 並設定 `'locale' => 'zh-TW'` , 接著執行 `voyager:install` 便會安裝中文版的 voyager
+{% endhint %}
+
 您可以選擇簡單安裝或附有虛擬資料(dummy)的安裝方式，附帶虛擬資料的安裝內容包含 1 個管理者帳號(如果沒有使用者存在於資料表內)、1 個網頁、
 4 則文章、2 個分類及 7 個設定
 
@@ -43,9 +48,7 @@ php artisan voyager:install --with-dummy
 若您看到以上訊息則表示您使用的 MySQL 版本過低, 請參閱以下解決方式: [https://laravel-news.com/laravel-5-4-key-too-long-error](https://laravel-news.com/laravel-5-4-key-too-long-error)
 {% endhint %}
 
-輸入 `php artisan serve` 及訪問 [http://localhost:8000/admin](http://localhost:8000/admin) 開始您的開發吧
-
-如果您
+輸入 `php artisan serve` 啟動服務並開啟 [http://localhost:8000/admin](http://localhost:8000/admin) 頁面測試看看吧！
 
 如果您在安裝時包含了虛擬數據，則安裝完成後會一併建立以下的管理帳號 : 
 
@@ -57,13 +60,13 @@ php artisan voyager:install --with-dummy
 只有在資料庫內未含有用戶資料時才會創建虛擬管理員
 {% endhint %}
 
-如果您未創建虛擬資料，以下的命令可以使您創造一個管理員帳號
+如果您未創建虛擬資料，並希望將管理員權限分配給現有用戶，以下的命令可以讓您輕鬆地完成此工作
 
 ```bash
 php artisan voyager:admin your@email.com
 ```
 
-If you wish to create a new admin user you can pass the `--create` flag, like so:
+如果您想建立一個新的管理員帳號，透過添加 `--create` 指令來完成，如
 
 ```bash
 php artisan voyager:admin your@email.com --create
@@ -89,7 +92,7 @@ php artisan vendor:publish --provider=ImageServiceProviderLaravel5
 若您使用 Laravel 5.5+ 請跳過此章節
 {% endhint %}
 
-新增 Voyager 至服務提供者，請開打 `config/app.php`，並將 `TCG\Voyager\VoyagerServiceProvider::class,` 添加至 `providers` 陣列內。
+新增 Voyager 至服務提供者，請打開 `config/app.php`，並將 `TCG\Voyager\VoyagerServiceProvider::class,` 添加至 `providers` 陣列內。
 
 如
 
