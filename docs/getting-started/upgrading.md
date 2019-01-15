@@ -26,7 +26,7 @@ https://github.com/the-control-group/voyager/blob/1.1/migrations/2018_03_16_0000
 
 ### 更新配置 (Configuration)
 
-`voyager.php` 配置文件也有一些調整， 移除 `prefix` 參數並換成 `user.redirect` 參數，請注意 `user.redirect` 參數應該總是在最前方加上 \(`/`\)
+`voyager.php` 配置文件也有一些調整， 移除 `prefix` 參數並換成 `user.redirect` 參數，請注意 `user.redirect` 參數的值應該總是在最前方加上 \(`/`\)
 
 ### 多角色
 
@@ -49,8 +49,7 @@ $user->roles()->get() // gets all extra as a collection
 $user->roles_all() // collection of all roles
 ```
 
-請注意，您不一定需要使用多角色，並且可以繼續使用主要角色而無需進行任何更改。
-Please note, that you do not have to use the multi-roles and you can continue to use the primary role without any changes.
+請注意，您不一定需要使用多角色，並且可以繼續使用主要角色無需進行任何更改。
 
 此外，請確保將新數據行添加到用戶數據類型的數據庫中。在 data_rows 表中插入新的數據行，確保它的 data_type_id 是用戶數據類型的ID，通常這將是ID 3，但更好的是確保它是正確的。
 
