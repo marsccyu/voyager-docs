@@ -1,13 +1,14 @@
-# Configurations
+# 配置
 
-With the installation of Voyager you will find a new configuration file located at `config/voyager.php`.  
-In this file you can find various options to change the configuration of your Voyager installation.
+當您安裝 Voyager 完成後，您會找到一個新的配置檔案位於 `config/voyager.php`
+
+在這個文件中，您可以找到各種選項來更改 Voyager 安裝的配置。
 
 {% hint style="info" %}
-If you cache your configuration files please make sure to run `php artisan config:clear` after you changed something.
+若您對於配置檔案進行了快取，請確保在您更改配置設定後執行 `php artisan config:clear` 指令
 {% endhint %}
 
-Below we will take a deep dive into the configuration file and give a detailed description of each configuration set.
+下面我們將深入探討配置文件，並提供每個配置設定的詳細說明
 
 ## Users
 
@@ -23,11 +24,11 @@ Below we will take a deep dive into the configuration file and give a detailed d
 ],
 ```
 
-**add\_default\_role\_on\_register:** Specify whether you would like to add the default role to any new user that is created.  
-**default\_role:** You can also specify what the **default\_role** is of the user.  
-**admin\_permission:** The permission needed to view the admin dashboard.  
-**namespace:** The namespace of your apps User Class.  
-**redirect:** Redirect path after the user logged in.
+**add\_default\_role\_on\_register:** 指定是否要將默認角色添加到創建的任何新用戶。
+**default\_role:** 您還可以指定用戶是何種默認腳色  
+**admin\_permission:** 可以瀏覽後台管理頁面的腳色權限  
+**namespace:** 您的 User Class 使用的命名空間  
+**redirect:** 用戶登入後重新導向的路徑。
 
 ## Controller
 
@@ -39,11 +40,11 @@ Below we will take a deep dive into the configuration file and give a detailed d
 ],
 ```
 
-You can specify the default `controller` namespace of Voyager. If you ever wish to override any of the core functionality of Voyager you can do so by duplicating the Voyager controllers and specifying the location of your custom controllers.
+您可以指定 Voyager 默認的 `controller` 命名空間，如果您希望覆寫 Voyager 的任何核心功能，可以透過複製 Voyager 控制器並指定自定義控制器的位置來實現。
 
 {% hint style="info" %}
-**Overwrite a single controller**  
-If you only want to overwrite a single controller, you might consider adding the following piece of code to your `AppServiceProvider` class in the `register` method.  
+**複寫單個控制器**  
+如果您只想覆蓋單個控制器, 您可以考慮將以下代碼添加到您的 `AppServiceProvider` class 的 `register` 方法內.  
 `$this->app->bind(VoyagerBreadController::class, MyBreadController::class);`
 {% endhint %}
 
@@ -57,7 +58,7 @@ If you only want to overwrite a single controller, you might consider adding the
 ],
 ```
 
-You can specify the namespace or location of your models. This is used when creating the Models from the database section of Voyager. If not defined the default application namespace will be used.
+您可以指定資料庫模型的命名空間或位置，從 Voyager 的數據庫部分創建模型時使用此方法。如果未定義此方法，將使用默認應用程序命名空間。
 
 ## Assets
 
@@ -67,10 +68,12 @@ You can specify the namespace or location of your models. This is used when crea
 'assets_path' => '/vendor/tcg/voyager/assets',
 ```
 
-You may wish to specify a different asset path. If your site lives in a subfolder you may need to include that directory to the beginning of the path. This may also be used in case you wish to duplicate the published assets and customize your own.
+您可能希望指定不同的 `assets` 路徑，如果您的站點位於子資料夾中，則可能需要將該目錄包含在路徑的開頭。
+
+如果您希望複製已發布的資源並自定義您自己的資源，也可以使用此方法。
 
 {% hint style="info" %}
-When upgrading to new version of voyager the assets located in the `/vendor/tcg/voyager/assets` directory may need to be overwritten, so if you wish to customize any styles you will want to duplicate that directory and specify the new location of your asset\_path.
+當您升級 Voyager 的新版本時，可能需要覆蓋在 `/vendor/tcg/voyager/assets` 內的檔案，所以如果您需要自訂任何樣式表則需要復該製目錄並指定 asset_path 的新位置。
 {% endhint %}
 
 ## Storage
@@ -83,7 +86,7 @@ When upgrading to new version of voyager the assets located in the `/vendor/tcg/
 ],
 ```
 
-By default Voyager is going to use the `public` local storage. You can additionally use any driver inside of your `config/filesystems.php`. This means you can use S3, Google Cloud Storage, or any other file storage system you would like.
+Voyager 預設使用本地端的 public 目錄，您還可以使用在 `config/filesystems.php` 中的其他驅動程序，這表示您可以使用如 S3 、 Google Cloud Storage 或是任何您想使用的儲存方式
 
 ## Database
 
@@ -97,7 +100,7 @@ By default Voyager is going to use the `public` local storage. You can additiona
 ],
 ```
 
-You may wish to hide some database tables in the Voyager database section. In the database config you can choose which tables would like to hide.
+您可能希望隱藏部分 Voyager 中的資料表，在資料庫配置中，您可以選擇要隱藏的資料表。
 
 ## Multilingual
 
@@ -114,9 +117,9 @@ You may wish to hide some database tables in the Voyager database section. In th
 ],
 ```
 
-You can specify whether or not you want to **enable** mutliple languages. You can then specify your **default** language and all the support languages \(**locales**\)
+您可以指定是否要啟動(**enable**)多語言，您可以指定默認語言和所有支持語言（區域設置）。
 
-Read more about multilanguage [here](../core-concepts/multilanguage.md).
+了解更多關於多語言設定 [multilanguage](../core-concepts/multilanguage.md).
 
 ## Dashboard
 
@@ -148,13 +151,13 @@ Read more about multilanguage [here](../core-concepts/multilanguage.md).
 ],
 ```
 
-In the dashboard config you can add **navbar\_items**, make the **data\_tables** responsive, and manage your dashboard **widgets**.
+在控制台配置中，您可以添加 navbar_items 使 data_tables 為響應式，進而管理儀表板小部件。
 
-**navbar\_items** Include a new route in the main user navbar dropdown by including a 'route', 'icon\_class', and 'target\_blank'.
+**navbar\_items** 透過 'route', 'icon\_class', and 'target\_blank' 設定包含在主用戶導航選單下的新路由
 
-**data\_tables** If you set 'responsive' to true the datatables will be responsive.
+**data\_tables** 如果將 'responsive' 設置為 true ，則資料表將是響應式的。 
 
-**widgets** Here you can manage the widgets that live on your dashboard. You can take a look at an example widget class by viewing the current widgets inside of `tcg/voyager/src/Widgets`.
+**widgets** 在此處可以管理在控制台內的小工具元件，您可以查看 `tcg/voyager/src/Widgets` 中的當前窗口小元件來查看示例窗口小元件類。
 
 ## Primary color
 
@@ -164,7 +167,7 @@ In the dashboard config you can add **navbar\_items**, make the **data\_tables**
 'primary_color' => '#22A7F0',
 ```
 
-The default primary color for the Voyager admin dashboard is a light blue color. You can change that primary color by changing the value of this config.
+Voyager 的預設主色為亮藍色，您可以在此配置中更換主色
 
 ## Show developer tips
 
@@ -174,7 +177,8 @@ The default primary color for the Voyager admin dashboard is a light blue color.
 'show_dev_tips' => true,
 ```
 
-In the Voyager admin there are developer tips or notifications that will show you how to reference certain values from Voyager. You can choose to hide these notifications by setting this configuration value to false.
+
+在 Voyager 中，有開發者提示或通知，將向您展示如何從Voyager中引用某些值。您可以通過將此配置值設置為 false 來選擇隱藏這些通知。
 
 ## Additional stylesheets
 
@@ -186,12 +190,12 @@ In the Voyager admin there are developer tips or notifications that will show yo
 ],
 ```
 
-You can add your own custom stylesheets that will be included in the Voyager admin dashboard. This means you could technically create a whole new theme for Voyager by adding your own custom stylesheet.
+您可以添加自定義樣式表，這些樣式表將包含在 Voyager 管理中。這意味著您可以通過添加自己的自定義樣式表在技術上為 Voyager 創建一個全新的主題。
 
-Read more [here](../customization/additional-css-js.md).
+[了解更多](../customization/additional-css-js.md).
 
 {% hint style="info" %}
-The path will be passed to Laravels [asset](https://laravel.com/docs/helpers#method-asset) function.
+該路徑將傳遞至 Laravel 的 [asset](https://laravel.com/docs/helpers#method-asset) 功能
 {% endhint %}
 
 ## Additional Javascript
@@ -204,9 +208,9 @@ The path will be passed to Laravels [asset](https://laravel.com/docs/helpers#met
 ],
 ```
 
-The same goes for this configuration. You can add your own javascript that will be executed in the Voyager admin dashboard. Add as many javascript files as needed.
+這個配置與 CSS 樣式表相同，您可以添加自定義的 javascript 並在 Voyager 管理中執行。
 
-Read more [here](../customization/additional-css-js.md).
+[了解更多](../customization/additional-css-js.md).
 
 ## Google Maps
 
@@ -223,7 +227,7 @@ Read more [here](../customization/additional-css-js.md).
 ],
 ```
 
-There is a new data type called **coordinates** that allow you to add a google map as a datatype. The user can then drag and drop a pin in the Google Maps to save a longitude and latitude value in the database.
+有一種稱為 **coordinates** 的新數據類型，允許您將谷歌地圖添加為數據類型。然後，用戶可以在 Google 地圖中拖放圖釘以在數據庫中保存經度和緯度值。
 
-In this config you can set the default Google Maps Keys and center location. This can also be added to your .env file.
+在此配置中，您可以設置默認的 Google 地圖密鑰和中心位置。這也可以添加到 .env 文件中。
 

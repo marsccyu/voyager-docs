@@ -23,11 +23,11 @@ DB_PASSWORD=secret
 如您使用 Laravel 5.4 請參閱 [add the Service Provider manually](installation.md#adding-the-service-provider). Otherwise, if you are on 5.5 this happens automatically thanks to package auto-discovery.
 {% endhint %}
 
-最後, 我們準備動手安裝 voyager. 
+最後, 我們準備動手安裝 Voyager. 
 
 {% hint style="tip" %}
 **使用本地化語言**  
-先開啟 `config/app.php` 並設定 `'locale' => 'zh-TW'` , 接著執行安裝便會是中文版的 voyager
+先開啟 `config/app.php` 並設定 `'locale' => 'zh-TW'` , 接著執行安裝便會是中文版的 Voyager
 {% endhint %}
 
 您可以選擇簡單安裝或附有虛擬資料(dummy)的安裝方式，附帶虛擬資料的安裝內容包含 1 個管理者帳號(如果沒有使用者存在於資料表內)、1 個網頁、
@@ -80,7 +80,7 @@ php artisan voyager:admin your@email.com --create
 
 本節適用於在現有 Laravel 安裝上安裝 Voyager 或希望執行手動安裝的用戶。若您非上述情形，請回到[installation](installation.md)或跳過本章捷
 
-您應該做的第一件事是發布Voyager附帶的資產。您可以通過運行以下命令來執行此操作：
+您應該做的第一件事是發布 Voyager 附帶的資產。您可以通過運行以下命令來執行此操作：
 
 ```bash
 php artisan vendor:publish --provider=VoyagerServiceProvider
