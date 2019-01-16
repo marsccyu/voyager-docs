@@ -1,11 +1,11 @@
 # 配置
 
-當您安裝 Voyager 完成後，您會找到一個新的配置檔案位於 `config/voyager.php`
+當您安裝 Voyager 完成後，您會找到一個新的配置檔案 `config/voyager.php`
 
-在這個文件中，您可以找到各種選項來更改 Voyager 安裝的配置。
+在這個配置檔案內，您可以找到各種選項來更改 Voyager 安裝的配置。
 
 {% hint style="info" %}
-若您對於配置檔案進行了快取，請確保在您更改配置設定後執行 `php artisan config:clear` 指令
+若您對配置檔案進行快取，請確保在您更改配置設定後執行 `php artisan config:clear` 指令
 {% endhint %}
 
 下面我們將深入探討配置文件，並提供每個配置設定的詳細說明
@@ -24,8 +24,8 @@
 ],
 ```
 
-**add\_default\_role\_on\_register:** 指定是否要將默認角色添加到創建的任何新用戶。
-**default\_role:** 您還可以指定用戶是何種默認腳色  
+**add\_default\_role\_on\_register:** 指定是否要將默認角色添加到創建的任何新用戶  
+**default\_role:** 您可以指定用戶是何種默認腳色  
 **admin\_permission:** 可以瀏覽後台管理頁面的腳色權限  
 **namespace:** 您的 User Class 使用的命名空間  
 **redirect:** 用戶登入後重新導向的路徑。
@@ -44,7 +44,7 @@
 
 {% hint style="info" %}
 **複寫單個控制器**  
-如果您只想覆蓋單個控制器, 您可以考慮將以下代碼添加到您的 `AppServiceProvider` class 的 `register` 方法內.  
+如果您只想覆蓋單個控制器, 您可以考慮將以下代碼添加到您的 **AppServiceProvider** class 的 **register** 方法內.  
 `$this->app->bind(VoyagerBreadController::class, MyBreadController::class);`
 {% endhint %}
 
@@ -117,7 +117,7 @@ Voyager 預設使用本地端的 public 目錄，您還可以使用在 `config/f
 ],
 ```
 
-您可以指定是否要啟動(**enable**)多語言，您可以指定默認語言和所有支持語言（區域設置）。
+您可以指定是否要啟動(**enable**)多語言，您可以指定默認語言和所有支持語言（Locale）。
 
 了解更多關於多語言設定 [multilanguage](../core-concepts/multilanguage.md).
 
@@ -151,9 +151,9 @@ Voyager 預設使用本地端的 public 目錄，您還可以使用在 `config/f
 ],
 ```
 
-在控制台配置中，您可以添加 navbar_items 使 data_tables 為響應式，進而管理儀表板小部件。
+在控制台配置中，您可以添加 `navbar_items` 使 `data_tables` 為響應式，進而管理儀表板小部件。
 
-**navbar\_items** 透過 'route', 'icon\_class', and 'target\_blank' 設定包含在主用戶導航選單下的新路由
+**navbar\_items** 透過 'route', 'icon\_class' 及 'target\_blank' 設定包含在主用戶導航選單下的新路由
 
 **data\_tables** 如果將 'responsive' 設置為 true ，則資料表將是響應式的。 
 
@@ -178,7 +178,7 @@ Voyager 的預設主色為亮藍色，您可以在此配置中更換主色
 ```
 
 
-在 Voyager 中，有開發者提示或通知，將向您展示如何從Voyager中引用某些值。您可以通過將此配置值設置為 false 來選擇隱藏這些通知。
+在 Voyager 控制台中有許多開發者提示或通知，將向您提示如何從 Voyager 中引用某些值。您可以通過將此配置值設置為 false 來選擇隱藏這些通知。
 
 ## Additional stylesheets
 
