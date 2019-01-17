@@ -2,8 +2,6 @@
 
 在您安裝 voyager 前，先了解 voyager "是什麼" 及 "不是什麼"。
 
-Before installing Voyager it is very important to take a quick moment to learn _what it is_ & _what it isn't_.
-
 ## voyager 是 :
 
 * Laravel 的管理介面
