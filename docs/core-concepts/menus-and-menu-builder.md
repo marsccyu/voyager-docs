@@ -1,30 +1,30 @@
 # Menus and Menu Builder
 
-With Voyager you can easily create menus for your application. In fact the Voyager admin is using the menu builder for the navigation you use on the left hand side.
+在 Voyager 您可以輕易的為您的應用程式建立選單，事實上 Voyager 管理後台就是使用選單建立器做為左側的選單導航。
 
-You can view your current Menus by clicking on the _Tools-&gt;Menu Builder_ button. You can add, edit, or delete any current menu. This means that you can create a new menu for the header, sidebar, or footer of your site. Create as many menus as you would like.
+您可以透過點擊 _Tools-&gt;Menu Builder_ 按鈕查看當前選單，您可以新增、編輯或刪除任何當前選單，這表示著您可以為網站的標題，側欄或頁腳創建新選單。
 
-When you are ready to add menu items to your menu you can click on the builder button of the corresponding menu:
+當您準備將選單項添加到選單中時，可以點擊相應選單的構建器按鈕：
 
 ![](../.gitbook/assets/menu_1.jpg)
 
-This will take you to the Menu Builder where you can add, edit, and delete menu items.
+這將帶您進入選單建立器，您可以在其中添加，編輯和刪除選單項。
 
 ![](../.gitbook/assets/menu_2.jpg)
 
-After creating and configuring your menu, you can easily implement that menu in your application. Say that we have a menu called `main`. Inside of any view file we could now output the menu by using the following code:
+在您建立及配置您的選單後，您可以輕易地在應用程式內實現選單，假設我們有一個名為 `main` 的選單。在任何視圖文件中，我們現在可以使用以下代碼輸出選單 :
 
 ```php
 menu('main');
 ```
 
-This will output your menu in an unstyled unordered list. If you do use bootstrap to stylize your web app you can pass a second argument to the menu display method telling it that you want to stylize the menu with bootstrap styles like so:
+這將會在不包含樣式及排序的的情況下輸出選單，如果您要在應用程式中使用 bootstrap 優化您的樣式，您可以透過在 menu 函式內傳遞第二個參數 bootstrap 對選單進行樣式設置 :  
 
 ```php
 menu('main', 'bootstrap');
 ```
 
-Taking it one more step further you can even specify your own view and stylize your menu however you would like. Say for instance that we had a file located at `resources/views/my_menu.blade.php`, which contained the following code:
+接下來，您甚至可以根據需求指定自己的視圖並設置菜單樣式。比如說我們有一個位於 `resources/views/my_menu.blade.php` 的文件，其中包含以下代碼 :
 
 ```markup
 <ul>
@@ -34,20 +34,20 @@ Taking it one more step further you can even specify your own view and stylize y
 </ul>
 ```
 
-Then anywhere you wanted to display your menu you can now call:
+接著在任何您想列出選單的地方使用 :
 
 ```php
 menu('main', 'my_menu');
 ```
 
-And your custom menu will now be output.
+就會輸出您的自訂選單。
 
 ### Menu as JSON
 
-If you dont want to render your menu but get an array instead, you can pass `_json` as the second parameter. For example:
+如果您不想渲染選單而是獲取數組，則可以將 `_json` 作為第二個參數傳遞。例如 :
 
 ```php
 menu('main', '_json')
 ```
 
-This will give you a collection of menu-items.
+那麼您會取得一個 menu-items 的集合。

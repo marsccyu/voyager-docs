@@ -1,6 +1,6 @@
 # Routing
 
-After running the voyager installer you will see a few new routes that have been added to your `routes/web.php` file which look like the following:
+在您執行安裝 Voyager 後，您會發現有一些新的路由添加至 `routes/web.php` 檔案中 : 
 
 ```php
 Route::group(['prefix' => 'admin'], function () {
@@ -8,22 +8,22 @@ Route::group(['prefix' => 'admin'], function () {
 });
 ```
 
-This is where the Voyager routes will be rendered. You can change the `admin` prefix if you desire, or set any other route configuration you need, such as `middleware` or `domain`.
+這是渲染 Voyager 路徑的地方，您可以依照需求修改 `admin` 前綴或設置其他關於 `middleware`、 `domain` 的路由配置。  
 
-When creating a new BREAD type and specifying a slug for that BREAD, you can then visit that route from the following link:
+當建立新 BREAD 類型及指定 slug 名稱後, 您可以使用以下的連結訪問路由 :  
 
 ```text
 URL/admin/slug-name
 ```
 
-As an example, if we have a `products` table and we specified the slug to be `products`. You will now be able to visit the following URL:
+舉例來說, 如果我們有一個名為 `products` 的資料表而且我們指定 slug 為 `products`, 您現在將可以使用以下的連結訪問 : 
 
 ```text
 URL/admin/products
 ```
 
 {% hint style="info" %}
-**Notice**  
-You may not see a link to your newly created routes or BREAD inside your admin menu. To create a new link in your admin menu visit the documentation for the [menu section](menus-and-menu-builder.md).
+**Notice**
+您可能無法在管理員選單中看到指向新創建的路線或 BREAD 的連結。要在管理員選單中創建新連結，請訪問選單部分的[文檔](menus-and-menu-builder.md).
 {% endhint %}
 
