@@ -43,7 +43,7 @@
 }
 ```
 
-Text Box, Text Area, Rich Textbox and Hidden 都是輸入框的類型，在上面的JSON中，您可以指定輸入框的默認值。
+Text Box, Text Area, Rich Textbox and Hidden 都是輸入框的類型，在上面的 JSON 中，您可以指定輸入框的默認值。
 
 ### Check Box
 
@@ -127,7 +127,7 @@ Text Box, Text Area, Rich Textbox and Hidden 都是輸入框的類型，在上�
 
 **upsize** : 僅當您將圖像設置為要調整大小時，此選項才有效。如果您指定圖片為 1000 像素而當上傳的圖片小於 1000 像素時，默認情況下，它不會將該圖像提升到1000像素;但是，如果將 `upsize` 設置為 **true**。它會將所有圖像升遷到指定的調整大小值。
 
-**thumbnails** 縮圖為一個陣列對象，每個對象都是創建的新縮圖，每個對象包含 `name` 及 `scale` 兩個百分比的值。該名稱將附加到您的縮略圖圖像（例如，您上傳的圖像是 ABC.jpg，現在將在ABC-medium.jpg 創建一個名為 medium 的縮略圖）。比例是您希望縮略圖縮放的百分比數量。如果指定，此值將是調整大小寬度和高度的百分比。
+**thumbnails** : 縮圖為一個陣列對象，每個對象都是創建的新縮圖，每個對象包含 `name` 及 `scale` 兩個百分比的值。該名稱將附加到您的縮略圖圖像（例如，您上傳的圖像是 ABC.jpg，現在將在ABC-medium.jpg 創建一個名為 medium 的縮略圖）。比例是您希望縮略圖縮放的百分比數量。如果指定，此值將是調整大小寬度和高度的百分比。
 
 ### Date & Timestamp
 
@@ -242,6 +242,7 @@ To activate this function, you simply have to enable `Tagging` in the relationsh
 
 {% hint style="info" %}
 **Be aware:**
+
 這僅儲存 `display-column` ，因此您必須確保所有其他欄位都可以為空或具有默認值。
 {% endhint %}
 

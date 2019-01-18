@@ -2,7 +2,7 @@
 
 Voyager 有一些很棒的資料庫工具讓您能添加/編輯/刪除或瀏覽當前資料表頁面。
 
-更棒的部分是您可以添加 BREAD 或 \(Browse, Read, Edit, Add, & Delete\) 功能在任何資料表內。
+更棒的部分是您可以添加 BREAD \(Browse, Read, Edit, Add, & Delete\) 功能在任何資料表內。
 
 ![](../.gitbook/assets/database-manager.png)
 
