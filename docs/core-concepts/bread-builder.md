@@ -238,7 +238,7 @@ To activate this function, you simply have to enable `Tagging` in the relationsh
 
 ![](../.gitbook/assets/tagging.jpg)
 
-之後您可以在選擇中輸入任意文字，然後按 Enter 鍵保存新關係。
+之後您可以在選擇中輸入任意文字，然後按 Enter 鍵保存新關聯。
 
 {% hint style="info" %}
 **Be aware:**

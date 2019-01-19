@@ -1,12 +1,12 @@
 # Helper methods
 
-Voyager has several helper functions that are ready to use. Here you can find the list of available function that may speed up your development.
+Voyager 有幾個可以使用的輔助函數，您可以在這邊找到這些清單並加速您的開發
 
 ## Thumbnails URL
 
-Voyager will generate thumbnails for Image field type when you specify the [additional field options](bread-builder.md#additional-field-options).
+當您指定 [additional field options](bread-builder.md#additional-field-options) 時，Voyager 將為圖片欄位類型生成縮略圖。 
 
-After you have your thumbnails generated, you may want to display the thumbnails in your view or get the thumbnail URL. In order to do that you need to add `Resizable` traits to your model.
+在創建縮圖後，您或許希望縮圖顯示在您的視圖中或取得縮圖連結，為此，您需要添加 `Resizable` 在您的模型中。
 
 ```php
 use TCG\Voyager\Traits\Resizable;
@@ -25,6 +25,7 @@ class Post extends Model
 @endforeach
 ```
 
+或者您可以指定可選的圖片欄位名稱（屬性），默認為圖像
 Or you can specify the optional image field name \(attribute\), default to `image`
 
 ```php

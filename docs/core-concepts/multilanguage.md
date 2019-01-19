@@ -1,10 +1,10 @@
 # Multilanguage
 
-Voyager supports multiple languages for your models.To get started, you need to configure some things first.
+Voyager 支援在模型中使用多語系，在開始之前，您必須先做一些設置 
 
 ## Setup
 
-First you need to define some `locales` in your `config/voyager.php` file and `enable` multilanguage:
+首先，您需要在 `config/voyager.php` 定義 `locales`，並且啟用 \(`enable`\) 多語系 :
 
 ```php
 'multilingual' => [
@@ -18,7 +18,7 @@ First you need to define some `locales` in your `config/voyager.php` file and `e
     ],
 ```
 
-After that you need to include the `Translatable` Trait in your model and define the translatable attributes:
+之後您需要在您的模型內包含 `Translatable` 特徵，然後定義可翻譯屬性 : 
 
 ```php
 use TCG\Voyager\Traits\Translatable;
@@ -29,7 +29,7 @@ class Post extends Model
 }
 ```
 
-Now you will see a language-selection in your Pages BREAD.
+現在，您將可以看在 BREAD 中看到語系選擇的選項。
 
 ## Usage
 
@@ -68,7 +68,10 @@ echo $post->title;
 echo $post->getTranslatedAttribute('title', 'locale', 'fallbackLocale');
 ```
 
-If you do not define locale, the current application locale will be used. You can pass in your own locale as a string. If you do not define fallbackLocale, the current application fallback locale will be used. You can pass your own locale as a string. If you want to turn the fallback locale off, pass false. If no values are found for the model for a specific attribute, either for the locale or the fallback, it will set that attribute to null.
+如果您未定義 `locale`，那麼當前應用程序的語言環境 \(`locale`\) 將會被調用，您可以將您的 `locale` 作為字串傳遞。
+
+如果您未定義 `fallbackLocale`，那麼當前應用程序 `fallbackLocale` ，如果您想要關閉 `fallbacklocale`，只要傳遞 `false` 即可。
+如果在模型內指定的屬性值未被找到，像是 `locale` 或 `fallback`，它會將該屬性設置為null。
 
 ### Translate the whole model
 
@@ -83,7 +86,6 @@ $posts = $posts->translate('locale', 'fallbackLocale');
 echo $posts[0]->title;
 ```
 
-If you do not define locale, the current application locale will be used. You can pass in your own locale as a string. If you do not define fallbackLocale, the current application fallback locale will be used. You can pass in your own locale as a string. If you want to turn the fallback locale off, pass false. If no values are found for the model for a specific attribute, either for the locale or the fallback, it will set that attribute to null.
 
 ### Check if model is translatable
 
@@ -107,5 +109,5 @@ $post->title = 'foobar';
 $post->save();
 ```
 
-This will update or create the translation for title of the post with the locale da. Please note that if a modified attribute is not translatable, then it will make the changes directly to the model itself. Meaning that it will overwrite the attribute in the language set as default.
+這將會更新或創建具有 da 的標題翻譯，請注意，如果修改後的屬性不可翻譯，則會直接對模型本身進行更改。這意味著它將覆蓋默認語言集中的屬性。
 
