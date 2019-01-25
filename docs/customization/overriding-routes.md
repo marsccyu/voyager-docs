@@ -1,6 +1,6 @@
 # Overriding Routes
 
-You can override any Voyager routes by writing the routes you want to overwrite below `Voyager::routes()`. For example if you want to override your post LoginController:
+您可以經由 在`Voyager::routes()` 內撰寫您想要覆蓋的路由覆蓋任何 Voyager 路由，舉例來說如果您想要覆蓋貼文的登入控制器 : 
 
 ```php
 Route::group(['prefix' => 'admin'], function () {

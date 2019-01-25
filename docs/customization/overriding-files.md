@@ -2,18 +2,20 @@
 
 ### Overriding BREAD Views
 
-You can override any of the BREAD views for a **single** BREAD by creating a new folder in `resources/views/vendor/voyager/slug-name` where _slug-name_ is the _slug_ that you have assigned for that table. There are 4 files that you can override:
+您可以經由在 `resources/views/vendor/voyager/slug-name` 內創建新目錄來覆蓋**單個BREAD**的任何 BREAD 視圖， 其中的 _slug-name_ 是您分配給資料表的 _slug_ 名稱。 
+
+這裡有四個檔案可以覆蓋 : 
 
 * browse.blade.php
 * edit-add.blade.php
 * read.blade.php
 * order.blade.php
 
-Alternatively you can override the views for **all** BREADs by creating any of the above files under `resources/views/vendor/voyager/bread`
+透過在 `resources/views/vendor/voyager/bread` 內建立上述的檔案來覆蓋所有 **BREADs** 的視圖
 
 ### Using custom Controllers
 
-You can override the controller for a single BREAD by creating a controller which extends Voyagers controller, for example:
+您可以透過繼承 Voyagers 控制器的新控制器來覆蓋單個 BREAD 的控制器，舉例來說 :  
 
 ```php
 <?php
@@ -25,16 +27,15 @@ class VoyagerCategoriesController extends \TCG\Voyager\Http\Controllers\VoyagerB
     //...
 }
 ```
-
-After that go to the BREAD-settings and fill in the Controller Name with your fully-qualified class-name:
+之後轉到 BREAD 設置並使用符合限制的類名填寫控制器名稱 :
 
 ![](../.gitbook/assets/bread_controller.png)
 
-You can now override all methods from the [VoyagerBaseController](https://github.com/the-control-group/voyager/blob/1.1/src/Http/Controllers/VoyagerBaseController.php)
+您現在可以覆蓋所有在 [VoyagerBaseController](https://github.com/the-control-group/voyager/blob/1.1/src/Http/Controllers/VoyagerBaseController.php) 內的方法 
 
 ### Overriding Voyagers Controllers
 
-If you want to override any of Voyagers core controllers you first have to change your config file `config/voyager.php`:
+如果您想要覆蓋任何 Voyagers 的核心控制器，您首先需要修改 `config/voyager.php` 內的設定 : 
 
 ```php
 /*
@@ -51,18 +52,17 @@ If you want to override any of Voyagers core controllers you first have to chang
 ],
 ```
 
-Then run `php artisan voyager:controllers`, Voyager will now use the child controllers which will be created at `App/Http/Controllers/Voyager`
+接著執行 `php artisan voyager:controllers` ，Voyager 現在將會使用被創建在 `App/Http/Controllers/Voyager` 內的子控制器。
 
 ### Overriding Voyager-Models
 
-You are also able to override Voyagers models if you need to.  
-To do so, you need to add the following to your AppServiceProviders register method:
+如果您需要的話，您也可以覆蓋 Voyagers 模型。為此，您需要在您的 `AppServiceProviders` 註冊方法內添加以下內容 :
 
 ```php
 Voyager::useModel($name, $object);
 ```
 
-Where **name** is the class-name of the model and **object** the fully-qualified name of your custom model. For example:
+這邊的 **name** 是模型的類名稱而 **object** 則是自訂模型內完全符合限制的名稱，舉例來說 :
 
 ```php
 <?php
@@ -83,7 +83,7 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-The next step is to create your model and make it extend the original model. In case of `DataRow`:
+下個步驟是建立一個您的模型，這個模型必須繼承原始模型，以 `DataRow` 舉例來說 :
 
 ```php
 <?php
